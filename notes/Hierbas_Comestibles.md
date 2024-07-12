@@ -1,0 +1,16 @@
+* Diente de León (taraxacum officinale)
+* Pamplina (stellaria media)
+* Gallina (lamium amplexicaule)
+* Ortiga Muerta (lamium purpureum)
+* Plantago o llantén (plantago lanceolata)
+* Cardo (sonchus spp)
+* Cebolla silvestre (allium spp)
+* Berro (cardamine spp)
+* Cerraja (Sonchus)
+* Lechuga salvaje (Lactuca virosa)
+* Malva
+* Bledo o cenizo (Chenopodium)
+* Borraja (Borago officinalis)
+* Verdolaga (Portulaca oleracea)
+* Tagarnina o cardillo (Scolymus hispanicus)
+* Caléndula
