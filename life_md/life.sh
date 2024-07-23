@@ -10,6 +10,16 @@
 ##                  propio archivo events.md.
 ## Acciones en todo.md: se encarga de archivar las tareas ya completadas (i.e. las precedidas por una x) del archivo todo.md
 
+# Miramos si en la llamada de crontab hemos creado el archivo cron_flag_life_md, de ser así, quiere decir que 
+# nos están ejecutando desde crontab dado que, en la línea de crontab, ponemos que antes de ejecutar el script 
+# se cree dicho archivo y, justo después de ejecutado el script, se elimina de nuevo. Esto nos sirve para saber 
+# si estamos siendo ejecutados desde crontab o por el usuario directamente (una chapuza, sí...)
+
+# la línea en crontab debería ser algo así:
+# * * * * * touch /tmp/cron_flag_life_md && /camino_al_archivo/life.sh && rm /tmp/cron_flag_life_md
+
+cron_flag_life_md="/tmp/cron_flag_life_md"
+
 script_dir=$(dirname "$(realpath "$0")")
 
 index_file="$script_dir/index.md"
@@ -17,9 +27,6 @@ calendar_file="$script_dir/calendar.md"
 events_file="$script_dir/events.md"
 todo_file="$script_dir/todo.md"
 past_file="$script_dir/past.md"
-
-# Obtener el nombre del proceso padre para determinar si nos está ejecutando el usuario o crontab
-parent_process=$(ps -o comm= $PPID)
 
 # Fecha actual
 current_date=$(date +%Y-%m-%d)
@@ -290,7 +297,8 @@ process_events "$events_file"
 process_todo "$todo_file"
 
 
-if [[ "$parent_process" != "cron" ]]; then
+if [ ! -f "$cron_flag_life_md" ]; then
     # Y, habiendo hecho ya todo, pasamos a abrir el index.md si no nos estan ejecutando desde crontab
     vim $index_file
 fi
+
