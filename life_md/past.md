@@ -51,3 +51,47 @@
 2024-07-08 lunes
 + 
 
+2024-07-09 martes
++ 
+
+2024-07-10 miércoles
++ 13 #h comprar palomitas
++ 
+
+2024-07-11 jueves
++ 
+
+2024-07-12 viernes
++ 
+
+2024-07-13 sábado
++ 
+
+2024-07-14 domingo
++ 
+
+2024-07-15 lunes
++ 
+
+2024-07-16 martes
++ 
+
+2024-07-17 miércoles
++ 13 #h comprar palomitas
++ 
+
+2024-07-18 jueves
++ 
+
+2024-07-19 viernes
++ 
+
+2024-07-20 sábado
++ 
+
+2024-07-21 domingo
++ 
+
+2024-07-22 lunes
++ 
+

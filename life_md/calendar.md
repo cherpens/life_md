@@ -3,50 +3,6 @@
 [Archivo de Eventos](events)
 [Días pasados](past)    
 
-2024-07-09 martes
-+ 
-
-2024-07-10 miércoles
-+ 13 #h comprar palomitas
-+ 
-
-2024-07-11 jueves
-+ 
-
-2024-07-12 viernes
-+ 
-
-2024-07-13 sábado
-+ 
-
-2024-07-14 domingo
-+ 
-
-2024-07-15 lunes
-+ 
-
-2024-07-16 martes
-+ 
-
-2024-07-17 miércoles
-+ 13 #h comprar palomitas
-+ 
-
-2024-07-18 jueves
-+ 
-
-2024-07-19 viernes
-+ 
-
-2024-07-20 sábado
-+ 
-
-2024-07-21 domingo
-+ 
-
-2024-07-22 lunes
-+ 
-
 2024-07-23 martes
 + 
 
@@ -949,5 +905,49 @@
 + 
 
 2025-05-05 lunes
++ 
+
+2025-05-06 martes
++ 
+
+2025-05-07 miércoles
++ 13 #h comprar palomitas
++ 
+
+2025-05-08 jueves
++ 
+
+2025-05-09 viernes
++ 
+
+2025-05-10 sábado
++ 
+
+2025-05-11 domingo
++ 
+
+2025-05-12 lunes
++ 
+
+2025-05-13 martes
++ 
+
+2025-05-14 miércoles
++ 13 #h comprar palomitas
++ 
+
+2025-05-15 jueves
++ 
+
+2025-05-16 viernes
++ 
+
+2025-05-17 sábado
++ 
+
+2025-05-18 domingo
++ 
+
+2025-05-19 lunes
 + 
 

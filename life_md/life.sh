@@ -10,11 +10,16 @@
 ##                  propio archivo events.md.
 ## Acciones en todo.md: se encarga de archivar las tareas ya completadas (i.e. las precedidas por una x) del archivo todo.md
 
-index_file="index.md"
-calendar_file="calendar.md"
-events_file="events.md"
-todo_file="todo.md"
-past_file="past.md"
+script_dir=$(dirname "$(realpath "$0")")
+
+index_file="$script_dir/index.md"
+calendar_file="$script_dir/calendar.md"
+events_file="$script_dir/events.md"
+todo_file="$script_dir/todo.md"
+past_file="$script_dir/past.md"
+
+# Obtener el nombre del proceso padre para determinar si nos está ejecutando el usuario o crontab
+parent_process=$(ps -o comm= $PPID)
 
 # Fecha actual
 current_date=$(date +%Y-%m-%d)
@@ -284,5 +289,8 @@ process_events "$events_file"
 # Y, ahora, vamos a encargarnos de procesar las tareas completadas de la lista todo.md
 process_todo "$todo_file"
 
-# Y, habiendo hecho ya todo, pasamos a abrir el index.md
-vim $index_file
+
+if [[ "$parent_process" != "cron" ]]; then
+    # Y, habiendo hecho ya todo, pasamos a abrir el index.md si no nos estan ejecutando desde crontab
+    vim $index_file
+fi
