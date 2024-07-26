@@ -3,16 +3,6 @@
 [Archivo de Eventos](events)
 [Días pasados](past)    
 
-2024-07-23 martes
-+ 
-
-2024-07-24 miércoles
-+ 13 #h comprar palomitas
-+ 
-
-2024-07-25 jueves
-+ 
-
 2024-07-26 viernes
 + 
 
@@ -949,5 +939,15 @@
 + 
 
 2025-05-19 lunes
++ 
+
+2025-05-20 martes
++ 
+
+2025-05-21 miércoles
++ 13 #h comprar palomitas
++ 
+
+2025-05-22 jueves
 + 
 

@@ -16,6 +16,8 @@
 script_dir=$(dirname "$(realpath "$0")")
 
 index_file="$script_dir/index.md"
+inbox_file="$script_dir/inbox.md"
+ledger_file="$script_dir/ledger.csv"
 calendar_file="$script_dir/calendar.md"
 events_file="$script_dir/events.md"
 todo_file="$script_dir/todo.md"
@@ -278,7 +280,44 @@ process_todo() {
     mv "$temp_tareas" "$todo_file"
 }
 
+process_ledger() {
+    local inbox_file="$1"
+    local ledger_file="$2"
+    local temp_inbox=$(mktemp)
+
+
+    if [ -s "$inbox_file" ]; then
+
+        # Procesar las líneas entre "Gastos:" e "Ingresos:", ignorando líneas en blanco y excluyendo "Gastos:"
+        awk -F ":" '/Gastos:/ {flag=1; next} /Ingresos:/ {flag=0; next} flag && NF {print strftime("%d/%m/%Y") "," $1 ",\"" $2 "\""}' "$inbox_file" | sed 's/\" /\"-/g' >> "$ledger_file"
+
+        # Procesar las líneas después de "Ingresos:" hasta "---", ignorando líneas en blanco y eliminando el espacio adicional
+        awk -F ":" '/Ingresos:/ {flag=1; next} /---/ {flag=0; next} flag && NF {gsub(/^ /, "", $2); print strftime("%d/%m/%Y") "," $1 ",\"" $2 "\""}' "$inbox_file" >> "$ledger_file"
+    
+        # Crear un archivo temporal para almacenar las líneas no procesadas
+        awk -F ":" '
+        /Gastos:/ {flag1=1; print; next}
+        /Ingresos:/ {flag1=0; flag2=1; print; next}
+        /---/ {flag2=0; print; next}
+        !flag1 && !flag2 || !NF {print}' "$inbox_file" > "$temp_inbox"
+
+        # Reemplazar el archivo original con el archivo temporal
+        mv "$temp_inbox" "$inbox_file"
+
+        #echo "Datos actualizados y archivo .md modificado"
+
+    else
+
+        echo "El archivo de datos nuevos no existe o está vacío"
+
+    fi
+}
+
 ### ------------------ Fin de las declaraciones de funciones --------------------------
+
+# Procesamos los Gastos e Ingresos que hemos apuntado en inbox.md a lo largo 
+# del día y los ponemos en ledger.csv
+process_ledger "$inbox_file" "$ledger_file"
 
 # Procesamos el archivo calendar.md, poniéndolo al día y archivando días pasados en past.md
 process_calendar_and_past "$calendar_file" "$past_file" "$events_file" "$days_to_add"

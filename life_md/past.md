@@ -95,3 +95,13 @@
 2024-07-22 lunes
 + 
 
+2024-07-23 martes
++ 
+
+2024-07-24 miércoles
++ 13 #h comprar palomitas
++ 
+
+2024-07-25 jueves
++ 
+
